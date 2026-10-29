@@ -1,15 +1,6 @@
 name: App
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - src/**
-      - Dockerfile
-      - .dockerignore
-      - AzAppAksApim.slnx
-      - charts/**
-      - .github/workflows/app.yml
   workflow_dispatch:
 
 permissions:
