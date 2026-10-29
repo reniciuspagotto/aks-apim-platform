@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AzAppAksApim/AzAppAksApim.csproj" />
+  </Folder>
+</Solution>

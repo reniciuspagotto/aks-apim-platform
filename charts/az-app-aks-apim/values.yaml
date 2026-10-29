@@ -1,0 +1,46 @@
+replicaCount: 2
+
+image:
+  # Overridden at deploy time, e.g. <acr>.azurecr.io/az-app-aks-apim
+  repository: az-app-aks-apim
+  tag: latest
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+containerPort: 8080
+
+service:
+  # Public LoadBalancer so APIM (no VNet) can reach the backend
+  type: LoadBalancer
+  port: 80
+
+env:
+  ASPNETCORE_ENVIRONMENT: Production
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+probes:
+  path: /api/health
+
+podSecurityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
