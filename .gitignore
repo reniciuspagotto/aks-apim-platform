@@ -491,3 +491,6 @@ crash.log
 tfplan
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
+
+# Build-time OpenAPI output
+openapi/
