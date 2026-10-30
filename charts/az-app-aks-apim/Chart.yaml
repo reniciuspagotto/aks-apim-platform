@@ -1,6 +1,0 @@
-apiVersion: v2
-name: az-app-aks-apim
-description: ASP.NET Core API hosted on AKS and exposed through Azure API Management
-type: application
-version: 0.1.0
-appVersion: "1.0.0"

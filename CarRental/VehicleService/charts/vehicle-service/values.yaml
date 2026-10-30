@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: acraznetapppoc.azurecr.io/vehicle-service
+  tag: latest
+
+containerPort: 8080
+
+service:
+  port: 80
+
+ingress:
+  className: webapprouting.kubernetes.azure.com
+  path: /api/vehicles

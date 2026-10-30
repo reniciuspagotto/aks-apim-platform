@@ -1,0 +1,28 @@
+name: ProductService
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: product-service
+  cancel-in-progress: false
+
+jobs:
+  product-service:
+    name: ProductService
+    uses: ./.github/workflows/reusable-deploy-service.yml
+    with:
+      service-dir: ProductService
+      project: ProductService
+      name: product-service
+      resource-group: rg-aznetapp-poc
+      aks-name: aks-aznetapp-poc
+      namespace: products
+      backend-kind: service
+      api-path: products
+      api-display-name: Product Service API
+      smoke-path: api/products

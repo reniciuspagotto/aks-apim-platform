@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/ProductService/">
+    <Project Path="ProductService/src/ProductService/ProductService.csproj" />
+  </Folder>
+  <Folder Name="/CarRental/">
+    <Project Path="CarRental/VehicleService/src/VehicleService/VehicleService.csproj" />
+    <Project Path="CarRental/RentCarService/src/RentCarService/RentCarService.csproj" />
+  </Folder>
+</Solution>

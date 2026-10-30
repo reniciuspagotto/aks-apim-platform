@@ -1,0 +1,11 @@
+replicaCount: 1
+
+image:
+  repository: acraznetapppoc.azurecr.io/product-service
+  tag: latest
+
+containerPort: 8080
+
+service:
+  type: LoadBalancer
+  port: 80

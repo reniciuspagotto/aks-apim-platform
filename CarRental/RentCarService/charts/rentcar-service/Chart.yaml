@@ -1,0 +1,6 @@
+apiVersion: v2
+name: rentcar-service
+description: RentCarService exposed through the AKS application routing ingress
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

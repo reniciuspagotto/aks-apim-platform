@@ -1,0 +1,44 @@
+name: CarRental
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: car-rental
+  cancel-in-progress: false
+
+jobs:
+  vehicle-service:
+    name: VehicleService
+    uses: ./.github/workflows/reusable-deploy-service.yml
+    with:
+      service-dir: CarRental/VehicleService
+      project: VehicleService
+      name: vehicle-service
+      resource-group: rg-carrental-poc
+      aks-name: aks-carrental-poc
+      namespace: car-rental
+      backend-kind: ingress
+      api-path: vehicles
+      api-display-name: Vehicle Service API
+      smoke-path: api/vehicles
+
+  rentcar-service:
+    name: RentCarService
+    needs: vehicle-service
+    uses: ./.github/workflows/reusable-deploy-service.yml
+    with:
+      service-dir: CarRental/RentCarService
+      project: RentCarService
+      name: rentcar-service
+      resource-group: rg-carrental-poc
+      aks-name: aks-carrental-poc
+      namespace: car-rental
+      backend-kind: ingress
+      api-path: rentals
+      api-display-name: Rent Car Service API
+      smoke-path: api/rentals

@@ -19,14 +19,14 @@ env:
   ARM_SUBSCRIPTION_ID: 563efcd7-bd1e-41de-b5c3-6950a9b7d863
 
 jobs:
-  terraform:
-    name: Terraform apply
+  shared:
+    name: Shared (ACR, APIM)
     runs-on: ubuntu-latest
     timeout-minutes: 120
     defaults:
       run:
-        working-directory: iac
-    steps:
+        working-directory: iac/shared
+    steps: &terraform-steps
       - name: Checkout
         uses: actions/checkout@v7
 
@@ -50,3 +50,23 @@ jobs:
 
       - name: Terraform apply
         run: terraform apply -input=false -auto-approve tfplan
+
+  aks-loadbalancer:
+    name: AKS LoadBalancer
+    needs: shared
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: iac/aks-loadbalancer
+    steps: *terraform-steps
+
+  aks-ingress:
+    name: AKS Ingress
+    needs: shared
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: iac/aks-ingress
+    steps: *terraform-steps
