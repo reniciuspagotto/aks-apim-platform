@@ -35,7 +35,6 @@ resource "azurerm_kubernetes_cluster" "this" {
   }
 }
 
-# Nodes pull images from the shared ACR using the kubelet identity created by AKS
 resource "azurerm_role_assignment" "aks_acr_pull" {
   scope                            = data.azurerm_container_registry.shared.id
   role_definition_name             = "AcrPull"
