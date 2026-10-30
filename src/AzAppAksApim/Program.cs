@@ -3,9 +3,12 @@ using AzAppAksApim.Endpoints;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHealthChecks();
+
+builder.Services.ConfigureHttpJsonOptions(options =>
+    options.SerializerOptions.NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.Strict);
+
 builder.Services.AddOpenApi(options =>
 {
-    // Azure API Management import fully supports OpenAPI 3.0.x
     options.OpenApiVersion = Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0;
     options.AddDocumentTransformer((document, _, _) =>
     {
@@ -33,7 +36,4 @@ app.MapWeatherEndpoints();
 
 app.Run();
 
-/// <summary>Greeting response payload.</summary>
-/// <param name="Message">Greeting text.</param>
-/// <param name="Timestamp">UTC time the response was generated.</param>
 public record HelloResponse(string Message, DateTime Timestamp);
