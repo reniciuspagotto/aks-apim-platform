@@ -36,9 +36,9 @@ jobs:
       - name: Azure login (OIDC)
         uses: azure/login@v3
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: 4c1b09a4-8c78-4f86-a2a7-718de9bdd482
+          tenant-id: c0457be8-0157-48c2-af49-b621fb3d2c99
+          subscription-id: 563efcd7-bd1e-41de-b5c3-6950a9b7d863
 
       - name: Login to ACR
         run: az acr login --name "$ACR_NAME"
@@ -69,9 +69,9 @@ jobs:
       - name: Azure login (OIDC)
         uses: azure/login@v3
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: 4c1b09a4-8c78-4f86-a2a7-718de9bdd482
+          tenant-id: c0457be8-0157-48c2-af49-b621fb3d2c99
+          subscription-id: 563efcd7-bd1e-41de-b5c3-6950a9b7d863
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v5
@@ -114,9 +114,9 @@ jobs:
   #     - name: Azure login (OIDC)
   #       uses: azure/login@v3
   #       with:
-  #         client-id: ${{ secrets.AZURE_CLIENT_ID }}
-  #         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-  #         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  #         client-id: 4c1b09a4-8c78-4f86-a2a7-718de9bdd482
+  #         tenant-id: c0457be8-0157-48c2-af49-b621fb3d2c99
+  #         subscription-id: 563efcd7-bd1e-41de-b5c3-6950a9b7d863
 
   #     - name: Set up kubectl
   #       uses: azure/setup-kubectl@v5
