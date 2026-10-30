@@ -1,3 +1,5 @@
+using AzAppAksApim.Endpoints;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHealthChecks();
@@ -26,6 +28,8 @@ app.MapGet("/api/hello", () => Results.Ok(new HelloResponse("Hello from az-app-a
     .Produces<HelloResponse>(StatusCodes.Status200OK);
 
 app.MapHealthChecks("/api/health");
+
+app.MapWeatherEndpoints();
 
 app.Run();
 
