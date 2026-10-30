@@ -8,6 +8,7 @@ terraform {
     }
   }
 
+  # Authentication (OIDC) and subscription come from ARM_* environment variables
   backend "azurerm" {
     resource_group_name  = "IaC-Az-App-State"
     storage_account_name = "azappstatepagotto"

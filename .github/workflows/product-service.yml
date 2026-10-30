@@ -19,8 +19,8 @@ jobs:
       service-dir: ProductService
       project: ProductService
       name: product-service
-      resource-group: rg-aznetapp-poc
-      aks-name: aks-aznetapp-poc
+      resource-group: rg-products-poc
+      aks-name: aks-products-poc
       namespace: products
       backend-kind: service
       api-path: products

@@ -13,7 +13,7 @@ terraform {
     resource_group_name  = "IaC-Az-App-State"
     storage_account_name = "azappstatepagotto"
     container_name       = "aztfstate"
-    key                  = "aznetapp-poc.tfstate"
+    key                  = "products-poc.tfstate"
   }
 }
 
